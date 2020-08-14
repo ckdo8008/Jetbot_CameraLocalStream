@@ -1,0 +1,11 @@
+# Rules in this file were initially inferred by Visual Studio IntelliCode from the C:\Users\cgdo\source\repos\ckdo8008\Jetbot_CameraLocalStream\CameraShare\ codebase based on best match to current usage at 2020-08-14
+# You can modify the rules from these initially generated values to suit your own policies
+# You can learn more about editorconfig here: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
+[*]
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+# New line preferences
+end_of_line = crlf
+insert_final_newline = false

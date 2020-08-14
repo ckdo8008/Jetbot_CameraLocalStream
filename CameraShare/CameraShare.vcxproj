@@ -35,9 +35,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{fa2a130a-6482-46d4-a6ef-25dccd9e1bb8}</ProjectGuid>
+    <ProjectGuid>{c6926001-6878-41ee-9ad2-867c4acb1cca}</ProjectGuid>
     <Keyword>Linux</Keyword>
-    <RootNamespace>CameraLocalStream</RootNamespace>
+    <RootNamespace>CameraShare</RootNamespace>
     <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
     <ApplicationType>Linux</ApplicationType>
     <ApplicationTypeRevision>1.0</ApplicationTypeRevision>
@@ -78,6 +78,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

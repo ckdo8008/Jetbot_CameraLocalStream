@@ -53,3 +53,5 @@ dkms.conf
 /.vs
 /CameraLocalStream/obj/x64/Debug
 /readme
+/CameraShare/.vs/CameraShare/v16
+/CameraShare/obj/x64/Debug
