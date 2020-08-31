@@ -2,42 +2,6 @@
 #include <gst/gst.h>
 #include <stdio.h>
 
-//int main(int argc, char* argv[])
-//{
-//    GstElement* pipeline;
-//    GstBus* bus;
-//    GstMessage* msg;
-//
-//    /* Initialize GStreamer */
-//    gst_init(&argc, &argv);
-//
-//    /* Build the pipeline */
-//    pipeline =
-//        gst_parse_launch
-//        (
-//            "nvarguscamerasrc ! "
-//            "video/x-raw(memory:NVMM), width=1920, height=1080, framerate=30/1 ! "
-//            "nvv4l2vp8enc bitrate=4000000 ! rtpvp8pay mtu=1400 ! decodebin name=t ! "
-//            "queue ! udpsink host=127.0.0.1 port=5001 sync=false async=false"
-//            "t. ! queue ! udpsink host=127.0.0.1 port=5002 sync=false async=false",
-//            NULL);
-//
-//    /* Start playing */
-//    gst_element_set_state(pipeline, GST_STATE_PLAYING);
-//
-//    /* Wait until error or EOS */
-//    bus = gst_element_get_bus(pipeline);
-//    msg =
-//        gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE,
-//            (GstMessageType)(GST_MESSAGE_ERROR | GST_MESSAGE_EOS));
-//    /* Free resources */
-//    if (msg != NULL)
-//        gst_message_unref(msg);
-//    gst_object_unref(bus);
-//    gst_element_set_state(pipeline, GST_STATE_NULL);
-//    gst_object_unref(pipeline);
-//    return 0;
-//}
 GMainLoop* loop;
 GstBus* bus;
 GstMessage* msg;
@@ -49,98 +13,9 @@ GstPad* queue_pad_5001, * queue_pad_5002, *queue_pad_fake;
 
 void mystop(int signo)
 {
-    ////g_main_loop_unref(loop);
-    //gst_element_set_state(sinkudp5001, GST_STATE_NULL);
-    //gst_element_set_state(sinkudp5002, GST_STATE_NULL);
-    //gst_element_set_state(wrapper5001, GST_STATE_NULL);
-    //gst_element_set_state(wrapper5002, GST_STATE_NULL);
-    //gst_element_set_state(queue5001, GST_STATE_NULL);
-    //gst_element_set_state(queue5002, GST_STATE_NULL);
-    //gst_element_set_state(tee, GST_STATE_NULL);
-    //gst_element_set_state(codec, GST_STATE_NULL);
-    //gst_element_set_state(filter, GST_STATE_NULL);
-    ////gst_element_set_state(source, GST_STATE_NULL);
-    //GstState state; GstState pending;
-    //gst_element_get_state(pipeline, &state, &pending, GST_CLOCK_TIME_NONE);
-    //gst_element_set_state(pipeline, GST_STATE_NULL);
-    //gst_object_unref(pipeline);
-    //g_main_loop_quit(loop);
-
-    //gst_object_unref(filter);
-    //gst_object_unref(codec);
-    //gst_object_unref(wrapper5001);
-    //gst_object_unref(wrapper5002);
-    //gst_object_unref(queue5001);
-    //gst_object_unref(queue5002);
-    //gst_object_unref(sinkudp5001);
-    //gst_object_unref(sinkudp5002);
-    //gst_object_unref(tee);
-
-    //if (msg != NULL)
-    //    gst_message_unref(msg);
-    //gst_bin_remove_many(GST_BIN(pipeline), 
-    //    source, filter, codec, tee, queue5001, 
-    //    wrapper5001, sinkudp5001, queue5002, 
-    //    wrapper5002, sinkudp5002, NULL);
-
-    //gst_element_set_state(queue5001, GST_STATE_NULL);
-    //gst_element_set_state(wrapper5001, GST_STATE_NULL);
-    //gst_element_set_state(sinkudp5001, GST_STATE_NULL);
-
-    //gst_element_set_state(queue5002, GST_STATE_NULL);
-    //gst_element_set_state(wrapper5002, GST_STATE_NULL);
-    //gst_element_set_state(sinkudp5002, GST_STATE_NULL);
-
-    //gst_element_set_state(tee, GST_STATE_NULL);
-    //gst_element_set_state(codec, GST_STATE_NULL);
-    //gst_element_set_state(filter, GST_STATE_NULL);
-    //gst_element_set_state(source, GST_STATE_NULL);
-
     g_main_loop_quit(loop);
     g_main_loop_unref(loop);
     GstState state; GstState pending;
-    //// fake
-    //gst_element_get_state(queuefake, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(queuefake, GST_STATE_NULL);
-    //gst_object_unref(queuefake);
-
-    //gst_element_get_state(sinkfake, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(sinkfake, GST_STATE_NULL);
-    //gst_object_unref(sinkfake);
-
-    //// udp 5001
-    //gst_element_get_state(sinkudp5001, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(sinkudp5001, GST_STATE_NULL);
-    //gst_object_unref(sinkudp5001);
-
-    //gst_element_get_state(wrapper5001, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(wrapper5001, GST_STATE_NULL);
-    //gst_object_unref(wrapper5001);
-
-    //gst_element_get_state(queue5001, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(queue5001, GST_STATE_NULL);
-    //gst_object_unref(queue5001);
-
-    //// udp 5002
-    //gst_element_get_state(sinkudp5002, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(sinkudp5002, GST_STATE_NULL);
-    //gst_object_unref(sinkudp5002);
-
-    //gst_element_get_state(wrapper5002, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(wrapper5002, GST_STATE_NULL);
-    //gst_object_unref(wrapper5002);
-
-    //gst_element_get_state(queue5002, &state, &pending, 10000000);
-    //if (state != GST_STATE_NULL)
-    //    gst_element_set_state(queue5002, GST_STATE_NULL);
-    //gst_object_unref(queue5002);
 
     gst_element_release_request_pad(tee, tee_pad_fake);
     gst_element_release_request_pad(tee, tee_pad_5001);
