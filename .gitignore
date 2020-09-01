@@ -56,3 +56,4 @@ dkms.conf
 /CameraShare/.vs/CameraShare/v16
 /CameraShare/obj/x64/Debug
 /CameraShare/obj/ARM64/Debug
+/CameraShare/obj/ARM64/Release
